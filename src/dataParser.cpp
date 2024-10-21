@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include "dataParser.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ class DataFrame{
         vector<vector<double> > dataFrame;
 
     public :
-        void parser(string path){
+        void parser(const string& path){
             string line;
 
             ifstream dataFile(path);
@@ -53,7 +54,6 @@ class DataFrame{
                 cerr<< "Error while parsing data file : "<< e.what() << endl;
             }
             dataFile.close();
-
         }
     
         void displayData(){
@@ -61,16 +61,13 @@ class DataFrame{
                 for (auto &value : row){
                     cout<< value << " ";
                 }
+                cout<<endl;
             }
         }
 };
 
 int main(){
     
-    DataFrame df;
-    df.parser("/Users/sarthak/projects/ml_framework/trial.csv");
-    df.displayData();
     return 0;
-
 
 }
