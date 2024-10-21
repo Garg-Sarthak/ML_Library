@@ -129,29 +129,29 @@ ml_framework/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/build
 .PHONY : ml_framework/fast
 
-src/read_data.o: src/read_data.cpp.o
-.PHONY : src/read_data.o
+src/dataParser.o: src/dataParser.cpp.o
+.PHONY : src/dataParser.o
 
 # target to build an object file
-src/read_data.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/read_data.cpp.o
-.PHONY : src/read_data.cpp.o
+src/dataParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/dataParser.cpp.o
+.PHONY : src/dataParser.cpp.o
 
-src/read_data.i: src/read_data.cpp.i
-.PHONY : src/read_data.i
+src/dataParser.i: src/dataParser.cpp.i
+.PHONY : src/dataParser.i
 
 # target to preprocess a source file
-src/read_data.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/read_data.cpp.i
-.PHONY : src/read_data.cpp.i
+src/dataParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/dataParser.cpp.i
+.PHONY : src/dataParser.cpp.i
 
-src/read_data.s: src/read_data.cpp.s
-.PHONY : src/read_data.s
+src/dataParser.s: src/dataParser.cpp.s
+.PHONY : src/dataParser.s
 
 # target to generate assembly for a file
-src/read_data.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/read_data.cpp.s
-.PHONY : src/read_data.cpp.s
+src/dataParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/dataParser.cpp.s
+.PHONY : src/dataParser.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ml_framework"
-	@echo "... src/read_data.o"
-	@echo "... src/read_data.i"
-	@echo "... src/read_data.s"
+	@echo "... src/dataParser.o"
+	@echo "... src/dataParser.i"
+	@echo "... src/dataParser.s"
 .PHONY : help
 
 

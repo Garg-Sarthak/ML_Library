@@ -6,65 +6,59 @@
 
 using namespace std;
 
-class DataFrame{
-    private : 
-        vector<vector<double> > dataFrame;
+void DataFrame::parser(const string& path){
+    string line;
 
-    public :
-        void parser(const string& path){
-            string line;
+    ifstream dataFile(path);
+    try{
+        if (!dataFile.is_open()){
+            throw runtime_error("File not found");
+        }
 
-            ifstream dataFile(path);
-            try{
-                if (!dataFile.is_open()){
-                    throw runtime_error("File not found");
-                }
+        int lineCnt = 1;
 
-                int lineCnt = 1;
-
-                while (getline(dataFile,line)){
-                    vector<double> row;
-                    string currEntry;
-                    for (int i = 0; i<line.size(); i++){
-                        char c = line[i];
-                        if (c == ','){
-                            try{
-                                row.push_back(stod(currEntry));
-                            }
-                            catch(exception& e){
-                                string error = "Invalid data in line : " + to_string(lineCnt);
-                                throw runtime_error(error);
-                            }
-                            currEntry.clear();
-                        }else{
-                            currEntry += c;
-                        }
-                    }
+        while (getline(dataFile,line)){
+            vector<double> row;
+            string currEntry;
+            for (int i = 0; i<line.size(); i++){
+                char c = line[i];
+                if (c == ','){
                     try{
                         row.push_back(stod(currEntry));
-                    }catch(exception& e){
+                    }
+                    catch(exception& e){
                         string error = "Invalid data in line : " + to_string(lineCnt);
                         throw runtime_error(error);
                     }
-                    dataFrame.push_back(row);
                     currEntry.clear();
-                    lineCnt++;
+                }else{
+                    currEntry += c;
                 }
-            } catch(exception& e){
-                cerr<< "Error while parsing data file : "<< e.what() << endl;
             }
-            dataFile.close();
-        }
-    
-        void displayData(){
-            for (auto &row : dataFrame){
-                for (auto &value : row){
-                    cout<< value << " ";
-                }
-                cout<<endl;
+            try{
+                row.push_back(stod(currEntry));
+            }catch(exception& e){
+                string error = "Invalid data in line : " + to_string(lineCnt);
+                throw runtime_error(error);
             }
+            dataFrame.push_back(row);
+            currEntry.clear();
+            lineCnt++;
         }
-};
+    } catch(exception& e){
+        cerr<< "Error while parsing data file : "<< e.what() << endl;
+    }
+    dataFile.close();
+}
+
+void DataFrame::displayData() const{
+    for (auto &row : dataFrame){
+        for (auto &value : row){
+            cout<< value << " ";
+        }
+        cout<<endl;
+    }
+}
 
 int main(){
     

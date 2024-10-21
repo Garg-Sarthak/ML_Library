@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/sarthak/projects/ml_framework/src/read_data.cpp" "CMakeFiles/ml_framework.dir/src/read_data.cpp.o" "gcc" "CMakeFiles/ml_framework.dir/src/read_data.cpp.o.d"
+  "/Users/sarthak/projects/ml_framework/src/dataParser.cpp" "CMakeFiles/ml_framework.dir/src/dataParser.cpp.o" "gcc" "CMakeFiles/ml_framework.dir/src/dataParser.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

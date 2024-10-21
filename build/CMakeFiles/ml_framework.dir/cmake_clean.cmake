@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ml_framework.dir/src/read_data.cpp.o"
-  "CMakeFiles/ml_framework.dir/src/read_data.cpp.o.d"
+  "CMakeFiles/ml_framework.dir/src/dataParser.cpp.o"
+  "CMakeFiles/ml_framework.dir/src/dataParser.cpp.o.d"
   "ml_framework"
   "ml_framework.pdb"
 )
