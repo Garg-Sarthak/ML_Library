@@ -73,27 +73,43 @@ CMakeFiles/ml_framework.dir/src/dataParser.cpp.o: CMakeFiles/ml_framework.dir/fl
 CMakeFiles/ml_framework.dir/src/dataParser.cpp.o: /Users/sarthak/projects/ml_framework/src/dataParser.cpp
 CMakeFiles/ml_framework.dir/src/dataParser.cpp.o: CMakeFiles/ml_framework.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthak/projects/ml_framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ml_framework.dir/src/dataParser.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ml_framework.dir/src/dataParser.cpp.o -MF CMakeFiles/ml_framework.dir/src/dataParser.cpp.o.d -o CMakeFiles/ml_framework.dir/src/dataParser.cpp.o -c /Users/sarthak/projects/ml_framework/src/dataParser.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ml_framework.dir/src/dataParser.cpp.o -MF CMakeFiles/ml_framework.dir/src/dataParser.cpp.o.d -o CMakeFiles/ml_framework.dir/src/dataParser.cpp.o -c /Users/sarthak/projects/ml_framework/src/dataParser.cpp
 
 CMakeFiles/ml_framework.dir/src/dataParser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ml_framework.dir/src/dataParser.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthak/projects/ml_framework/src/dataParser.cpp > CMakeFiles/ml_framework.dir/src/dataParser.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthak/projects/ml_framework/src/dataParser.cpp > CMakeFiles/ml_framework.dir/src/dataParser.cpp.i
 
 CMakeFiles/ml_framework.dir/src/dataParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ml_framework.dir/src/dataParser.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthak/projects/ml_framework/src/dataParser.cpp -o CMakeFiles/ml_framework.dir/src/dataParser.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthak/projects/ml_framework/src/dataParser.cpp -o CMakeFiles/ml_framework.dir/src/dataParser.cpp.s
+
+CMakeFiles/ml_framework.dir/src/main.cpp.o: CMakeFiles/ml_framework.dir/flags.make
+CMakeFiles/ml_framework.dir/src/main.cpp.o: /Users/sarthak/projects/ml_framework/src/main.cpp
+CMakeFiles/ml_framework.dir/src/main.cpp.o: CMakeFiles/ml_framework.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/sarthak/projects/ml_framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ml_framework.dir/src/main.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ml_framework.dir/src/main.cpp.o -MF CMakeFiles/ml_framework.dir/src/main.cpp.o.d -o CMakeFiles/ml_framework.dir/src/main.cpp.o -c /Users/sarthak/projects/ml_framework/src/main.cpp
+
+CMakeFiles/ml_framework.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ml_framework.dir/src/main.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/sarthak/projects/ml_framework/src/main.cpp > CMakeFiles/ml_framework.dir/src/main.cpp.i
+
+CMakeFiles/ml_framework.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ml_framework.dir/src/main.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/sarthak/projects/ml_framework/src/main.cpp -o CMakeFiles/ml_framework.dir/src/main.cpp.s
 
 # Object files for target ml_framework
 ml_framework_OBJECTS = \
-"CMakeFiles/ml_framework.dir/src/dataParser.cpp.o"
+"CMakeFiles/ml_framework.dir/src/dataParser.cpp.o" \
+"CMakeFiles/ml_framework.dir/src/main.cpp.o"
 
 # External object files for target ml_framework
 ml_framework_EXTERNAL_OBJECTS =
 
 ml_framework: CMakeFiles/ml_framework.dir/src/dataParser.cpp.o
+ml_framework: CMakeFiles/ml_framework.dir/src/main.cpp.o
 ml_framework: CMakeFiles/ml_framework.dir/build.make
 ml_framework: CMakeFiles/ml_framework.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/sarthak/projects/ml_framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ml_framework"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/sarthak/projects/ml_framework/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ml_framework"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ml_framework.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

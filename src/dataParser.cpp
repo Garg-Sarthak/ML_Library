@@ -2,12 +2,15 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <sstream>
+
 #include "dataParser.h"
 
 using namespace std;
 
-void DataFrame::parser(const string& path){
+void DataFrame::parseData(const string& path){
     string line;
+    int lineCnt = 2;
 
     ifstream dataFile(path);
     try{
@@ -15,13 +18,22 @@ void DataFrame::parser(const string& path){
             throw runtime_error("File not found");
         }
 
-        int lineCnt = 1;
+        getline(dataFile, line);
+        stringstream ss(line); // Create a stringstream from the line
+        string featureName;
+
+        while (getline(ss, featureName, ',')) {
+            feature_names.push_back(featureName);
+        }
+        
+        num_features = feature_names.size();
+
 
         while (getline(dataFile,line)){
+            int entryCnt = 1;
             vector<double> row;
             string currEntry;
-            for (int i = 0; i<line.size(); i++){
-                char c = line[i];
+            for (char c : line){
                 if (c == ','){
                     try{
                         row.push_back(stod(currEntry));
@@ -31,6 +43,7 @@ void DataFrame::parser(const string& path){
                         throw runtime_error(error);
                     }
                     currEntry.clear();
+                    entryCnt++;
                 }else{
                     currEntry += c;
                 }
@@ -39,14 +52,20 @@ void DataFrame::parser(const string& path){
                 row.push_back(stod(currEntry));
             }catch(exception& e){
                 string error = "Invalid data in line : " + to_string(lineCnt);
+    
                 throw runtime_error(error);
+            }
+            if (entryCnt != num_features){
+                // cerr<<"Missing/Incomplete Data in Input at line : "<<lineCnt<<endl;
+                throw runtime_error("Data Missing");
             }
             dataFrame.push_back(row);
             currEntry.clear();
             lineCnt++;
         }
     } catch(exception& e){
-        cerr<< "Error while parsing data file : "<< e.what() << endl;
+        string err = "Missing Data at line : " + to_string(lineCnt);
+        throw runtime_error(err);
     }
     dataFile.close();
 }
@@ -58,10 +77,4 @@ void DataFrame::displayData() const{
         }
         cout<<endl;
     }
-}
-
-int main(){
-    
-    return 0;
-
 }

@@ -6,13 +6,16 @@
 #include <string>
 #include <vector>
 
+
 // Class definition for DataFrame
 class DataFrame {
 private:
-    std::vector<std::vector<double>> dataFrame; 
+    std::vector<std::vector<double> > dataFrame; 
 
 public:
-    void parser(const std::string& path);       
+    std::vector<std::string> feature_names;
+    int num_features;
+    void parseData(const std::string& path);       
     void displayData() const;                    
 };
 
