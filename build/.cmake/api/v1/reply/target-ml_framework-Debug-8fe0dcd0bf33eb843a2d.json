@@ -25,13 +25,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 15,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 9,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 12,
 				"parent" : 0
 			}
 		]
@@ -42,7 +48,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk"
+					"fragment" : "-g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk"
 				}
 			],
 			"includes" : 
@@ -50,6 +56,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/Users/sarthak/projects/ml_framework/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/Users/sarthak/eigen-3.4.0"
 				}
 			],
 			"language" : "CXX",
@@ -73,6 +83,10 @@
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
 			{
 				"fragment" : "",
 				"role" : "flags"

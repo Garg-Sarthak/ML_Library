@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void DataFrame::parseData(const string& path){
+void DataFrame::parseData(const string& path, bool isSupervised){
     string line;
     int lineCnt = 2;
 
@@ -19,14 +19,21 @@ void DataFrame::parseData(const string& path){
         }
 
         getline(dataFile, line);
-        stringstream ss(line); // Create a stringstream from the line
-        string featureName;
+        stringstream ss(line); 
+        string label;
 
-        while (getline(ss, featureName, ',')) {
-            feature_names.push_back(featureName);
+        while (getline(ss, label, ',')) {
+            label_names.push_back(label);
+            feature_names.push_back(label);
         }
         
-        num_features = feature_names.size();
+        if (isSupervised){
+            target_name = feature_names.back();
+            feature_names.pop_back();
+        }
+
+        num_labels = label_names.size();
+        
 
 
         while (getline(dataFile,line)){
@@ -55,7 +62,7 @@ void DataFrame::parseData(const string& path){
     
                 throw runtime_error(error);
             }
-            if (entryCnt != num_features){
+            if (entryCnt != num_labels){
                 // cerr<<"Missing/Incomplete Data in Input at line : "<<lineCnt<<endl;
                 throw runtime_error("Data Missing");
             }

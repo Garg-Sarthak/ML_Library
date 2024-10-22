@@ -9,13 +9,13 @@
 
 // Class definition for DataFrame
 class DataFrame {
-private:
-    std::vector<std::vector<double> > dataFrame; 
-
 public:
+    std::vector<std::vector<double> > dataFrame; 
+    std::vector<std::string> label_names;
     std::vector<std::string> feature_names;
-    int num_features;
-    void parseData(const std::string& path);       
+    std::string target_name;
+    int num_labels;
+    void parseData(const std::string& path, bool isSupervised);    
     void displayData() const;                    
 };
 

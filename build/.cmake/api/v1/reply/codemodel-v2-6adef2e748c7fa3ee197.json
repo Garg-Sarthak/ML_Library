@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ml_framework::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ml_framework-1f635be129afa0f5c879.json",
+					"jsonFile" : "target-ml_framework-Debug-8fe0dcd0bf33eb843a2d.json",
 					"name" : "ml_framework",
 					"projectIndex" : 0
 				}
