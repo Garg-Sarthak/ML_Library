@@ -15,7 +15,7 @@ void DataFrame::parseData(const string& path, bool isSupervised){
     ifstream dataFile(path);
     try{
         if (!dataFile.is_open()){
-            throw runtime_error("File not found");
+            throw runtime_error("File not found/Invalid Path Specified");
         }
 
         getline(dataFile, line);
@@ -46,7 +46,7 @@ void DataFrame::parseData(const string& path, bool isSupervised){
                         row.push_back(stod(currEntry));
                     }
                     catch(exception& e){
-                        string error = "Invalid data in line : " + to_string(lineCnt);
+                        string error = "Invalid (NaN) data in line : " + to_string(lineCnt);
                         throw runtime_error(error);
                     }
                     currEntry.clear();
@@ -58,20 +58,19 @@ void DataFrame::parseData(const string& path, bool isSupervised){
             try{
                 row.push_back(stod(currEntry));
             }catch(exception& e){
-                string error = "Invalid data in line : " + to_string(lineCnt);
+                string error = "Invalid (NaN) data in line : " + to_string(lineCnt);
     
                 throw runtime_error(error);
             }
             if (entryCnt != num_labels){
-                // cerr<<"Missing/Incomplete Data in Input at line : "<<lineCnt<<endl;
-                throw runtime_error("Data Missing");
+                throw runtime_error("Data Missing (All rows must have same number of data points) ");
             }
             dataFrame.push_back(row);
             currEntry.clear();
             lineCnt++;
         }
     } catch(exception& e){
-        string err = "Missing Data at line : " + to_string(lineCnt);
+        string err = "Missing or NaN Data at line : " + to_string(lineCnt);
         throw runtime_error(err);
     }
     dataFile.close();

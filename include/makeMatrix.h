@@ -11,7 +11,6 @@ class BaseMatrix {
 public:
     Matrix<double, Dynamic, Dynamic> featureMatrix;
     Matrix<double, Dynamic, 1> targetMatrix;
-    int featureCnt;
     
 
     BaseMatrix(std::vector<std::vector<double>> dataFrame, bool isSupervised) {
@@ -29,7 +28,7 @@ public:
         if (isSupervised) {
             targetMatrix = Matrix<double, Dynamic, 1>(rows);
             for (int row = 0; row < rows; row++) {
-                targetMatrix(row, 0) = dataFrame[row][cols - 1];
+                targetMatrix(row, 0) = dataFrame[row][cols];
             }
         }
     }

@@ -11,7 +11,7 @@ int main(){
     bool isSupervised = true;
     DataFrame df;
     try{
-        df.parseData("../trial.csv",isSupervised);
+        df.parseData("../Housing.csv",isSupervised);
     }catch(exception& e){
         cout<<"Error : "<<e.what()<<endl;
         return 0;
@@ -23,5 +23,6 @@ int main(){
 
     BaseMatrix M(df.dataFrame,isSupervised);
     cout<<M.featureMatrix<<endl;
+    cout<<M.targetMatrix<<endl;
     
 }

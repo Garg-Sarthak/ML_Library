@@ -7,7 +7,7 @@
 #include <vector>
 
 
-// Class definition for DataFrame
+
 class DataFrame {
 public:
     std::vector<std::vector<double> > dataFrame; 
