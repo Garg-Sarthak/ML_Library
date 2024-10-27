@@ -2157,8 +2157,12 @@ CMakeFiles/ml_framework.dir/src/main.cpp.o: /Users/sarthak/projects/ml_framework
   /Users/sarthak/eigen-3.4.0/Eigen/src/misc/Kernel.h \
   /Users/sarthak/eigen-3.4.0/Eigen/src/misc/RealSvd2x2.h \
   /Users/sarthak/projects/ml_framework/include/dataParser.h \
+  /Users/sarthak/projects/ml_framework/include/dataUtils.h \
+  /Users/sarthak/projects/ml_framework/include/linearRegression.h \
   /Users/sarthak/projects/ml_framework/include/makeMatrix.h
 
+
+/Users/sarthak/projects/ml_framework/include/linearRegression.h:
 
 /Users/sarthak/eigen-3.4.0/Eigen/src/misc/Kernel.h:
 
@@ -3863,6 +3867,8 @@ CMakeFiles/ml_framework.dir/src/main.cpp.o: /Users/sarthak/projects/ml_framework
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/ranges_minmax_element.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/ranges_move_backward.h:
+
+/Users/sarthak/projects/ml_framework/include/dataUtils.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__type_traits/is_constant_evaluated.h:
 
