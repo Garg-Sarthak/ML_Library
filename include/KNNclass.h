@@ -1,5 +1,5 @@
-#ifndef KNN_REG
-#define KNN_REG
+#ifndef KNN_CLS
+#define KNN_CLS
 
 #include <Eigen/Dense>
 #include <cmath>
@@ -10,23 +10,22 @@
 using namespace std;
 using namespace Eigen;
 
-class KNNRegressor{
+class KNNClassifier{
 public :
     bool normalization;
 
-    KNNRegressor(bool normalization = false){
+    KNNClassifier(bool normalization = false){
         this -> normalization = normalization;
     }
 
-    VectorXd predict (string path, Matrix<double,Dynamic,Dynamic> X_test, int k){
+    VectorXi predict (string path, Matrix<double,Dynamic,Dynamic> X_test, int k){
         DataFrame df;
         df.parseData(path,true);
         BaseMatrix m(df.dataFrame,true);
         return predict(m.featureMatrix,m.targetMatrix,X_test,k);
     }
 
-    VectorXd predict(Matrix<double,Dynamic,Dynamic> X, Matrix<double,Dynamic,1> Y, Matrix<double,Dynamic,Dynamic> X_test, int k){
-        
+    VectorXi predict(Matrix<double,Dynamic,Dynamic> X, Matrix<double,Dynamic,1> Y, Matrix<double,Dynamic,Dynamic> X_test, int k){
         if (k <= 0 || k>X.rows()) throw runtime_error("Invalid value for k");
 
         if (X.rows() != Y.rows() || (X.cols() != X_test.cols())) {
@@ -36,10 +35,9 @@ public :
 
         if (normalization){
             DataUtils::normalize(X);
-            DataUtils::normalize(Y);
         }
 
-        VectorXd Y_test (X_test.rows());
+        VectorXi Y_test (X_test.rows());
 
         for (int i = 0; i<X_test.rows(); i++){
             priority_queue<pair<double,double> > pq;
@@ -53,12 +51,20 @@ public :
 
             }
 
-            double ans = 0;
+            unordered_map<int,int> mpp;
             while(!pq.empty()){
-                ans += pq.top().second;
+                int pred_label = pq.top().second;
+                if (mpp.find(pred_label) == mpp.end()) mpp[pred_label] = 0;
+                mpp[pred_label]++;
                 pq.pop();
             }
-            ans /= k;
+            int ans = 0; int mxCnt = INT_MIN;
+            for (auto it : mpp){
+                if (it.second > mxCnt){
+                    ans = it.first;
+                    mxCnt = it.second;
+                }
+            }
             Y_test(i) = ans;
         }
         cout << Y_test.transpose() << endl;

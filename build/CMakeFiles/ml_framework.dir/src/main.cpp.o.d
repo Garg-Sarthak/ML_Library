@@ -1179,4 +1179,5 @@ CMakeFiles/ml_framework.dir/src/main.cpp.o: \
   /Users/sarthak/projects/ml_framework/include/linearRegression.h \
   /Users/sarthak/projects/ml_framework/include/dataUtils.h \
   /Users/sarthak/projects/ml_framework/include/logisticRegression.h \
-  /Users/sarthak/projects/ml_framework/include/KNNreg.h
+  /Users/sarthak/projects/ml_framework/include/KNNreg.h \
+  /Users/sarthak/projects/ml_framework/include/KNNclass.h
