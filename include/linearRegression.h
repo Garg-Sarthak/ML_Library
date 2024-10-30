@@ -17,45 +17,36 @@ public :
     double bias;
     int num_features;
     bool fit_intercept;
-    std::string regularization;
     bool normalization;
     std::string solver;
-    int max_iter;
-    float tolerance;
 
-    LinearRegression(std::string solver = "OLS", std::string regularization = "None", int max_iter = 1000, bool fit_intercept=true,  bool normalization = false,  float tolerance = 1e-4){
+    LinearRegression(std::string solver = "OLS",bool fit_intercept=true,  bool normalization = false){
         bias = 0.0;
         num_features = -1;
+        if (solver != "Gradient_Descent" && solver != "OLS") {
+            throw std::invalid_argument("Invalid solver. Must be 'Gradient_Descent' or 'OLS'.");
+        }
+        this->fit_intercept=fit_intercept;
+        this->normalization = normalization;
+        this->solver = solver;
+    }
+
+    void fit(std::string path,double learning_rate = 0.001,int max_iter=1000,std::string regularization = "None",double lambda = 0.1){
+        DataFrame df;
+        df.parseData(path,true);
+        BaseMatrix m(df.dataFrame,true);
+        fit(m.featureMatrix,m.targetMatrix,learning_rate,max_iter,regularization,lambda);
+    }
+
+    void fit(Matrix<double,Dynamic,Dynamic> X, Matrix<double,Dynamic,1> Y,double learning_rate = 0.001,int max_iter=1000,std::string regularization = "None",double lambda = 0.1){
+        if (learning_rate < 0) throw std::runtime_error("Learning rate can't be negative");
         if (regularization != "None" && regularization!= "Lasso" && regularization != "Ridge" && regularization != "Elastic_Net") {
             throw std::invalid_argument("Invalid regularization type. Must be 'None', 'Lasso', 'Ridge', or 'Elastic_Net'.");
         }
         if (max_iter <= 0) {
             throw std::invalid_argument("max_iter must be a positive integer.");
         }
-        if (tolerance < 0) {
-            throw std::invalid_argument("tolerance must be a non-negative float.");
-        }
-        if (solver != "Gradient_Descent" && solver != "OLS") {
-            throw std::invalid_argument("Invalid solver. Must be 'Gradient_Descent' or 'OLS'.");
-        }
-        this->fit_intercept=fit_intercept;
-        this->regularization = regularization;
-        this->normalization = normalization;
-        this->solver = solver;
-        this->max_iter = max_iter;
-        this->tolerance = tolerance;
-
         
-    }
-
-    void fit(std::string path,double learning_rate=0.001,double lambda = 0.1){
-        DataFrame df;
-        df.parseData(path,true);
-        BaseMatrix m(df.dataFrame,true);
-        fit(m.featureMatrix,m.targetMatrix,learning_rate,lambda);
-    }
-
-    void fit(Matrix<double,Dynamic,Dynamic> X, Matrix<double,Dynamic,1> Y,double learning_rate,double lambda = 0.1){
         if (X.rows() != Y.rows()){
             throw std::runtime_error("Dimension Mismatch: Feature matrix and target matrix must have same number of rows.");
         }
@@ -74,7 +65,7 @@ public :
             OLS(X,Y);
         }
         else if (solver == "Gradient_Descent"){
-            GD(X,Y,learning_rate,lambda);
+            GD(X,Y,learning_rate,max_iter,regularization,lambda);
         }
     }
 
@@ -101,7 +92,7 @@ private :
 
     }
 
-    void GD(Matrix<double,Dynamic,Dynamic> X, Matrix<double,Dynamic,1> Y, double learning_rate=0.001, double lambda=0.1){
+    void GD(Matrix<double,Dynamic,Dynamic> X, Matrix<double,Dynamic,1> Y, double learning_rate=0.001,int max_iter = 1000,std::string regularization = "None",double lambda=0.1){
         int featureCnt = X.cols();
         double dataPtCnt = (double) X.rows();
 
@@ -118,14 +109,14 @@ private :
             predictedY = X*weights + Eigen::VectorXd::Constant(dataPtCnt,bias);
             
             if (regularization == "Lasso"){
-                penalty = lambda * (weights.cwiseAbs());
+                penalty = lambda * (weights.cwiseSign());
             }else if (regularization == "Ridge"){
                 penalty = 2*lambda * weights;
             }else if (regularization == "Elastic_Net"){
-                penalty = 2*lambda * weights + lambda * (weights.cwiseAbs());
+                penalty = 2*lambda * weights + lambda * (weights.cwiseSign());
             }
 
-            weights = weights + (learning_rate * (X.transpose() * (Y - predictedY)) / dataPtCnt);
+            weights = weights + (learning_rate * (X.transpose() * (Y - predictedY)) / dataPtCnt) + penalty;
             if (fit_intercept){
                 bias = bias + (learning_rate * ((Y - predictedY ).sum()) / dataPtCnt);
             }

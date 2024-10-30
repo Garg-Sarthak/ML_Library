@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/clang++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/sarthak/projects/ml_framework/include -I/Users/sarthak/eigen-3.4.0
+CXX_INCLUDES = -I/Users/sarthak/projects/ml_framework/include -I"/Users/sarthak/projects/ml_framework/include/*" -I/Users/sarthak/eigen-3.4.0
 
 CXX_FLAGSarm64 = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk
 

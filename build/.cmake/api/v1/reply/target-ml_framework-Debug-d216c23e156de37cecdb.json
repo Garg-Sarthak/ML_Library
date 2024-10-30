@@ -25,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 18,
+				"line" : 19,
 				"parent" : 0
 			},
 			{
@@ -38,6 +38,12 @@
 				"command" : 1,
 				"file" : 0,
 				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 13,
 				"parent" : 0
 			}
 		]
@@ -59,6 +65,10 @@
 				},
 				{
 					"backtrace" : 3,
+					"path" : "/Users/sarthak/projects/ml_framework/include/*"
+				},
+				{
+					"backtrace" : 4,
 					"path" : "/Users/sarthak/eigen-3.4.0"
 				}
 			],

@@ -26,10 +26,10 @@ int main(){
     cout<<M.featureMatrix<<endl;
     cout<<M.featureMatrix.rows()<<endl;
     cout<<M.featureMatrix.cols()<<endl;
-    LinearRegression model1 = LinearRegression("OLS","None",10000,false);
-    LinearRegression model = LinearRegression("Gradient_Descent","None",1000,false);
-    model.fit("../Salary_dataset.csv");
-    model1.fit("../Salary_dataset.csv",0.001);
+    LinearRegression model1 = LinearRegression("OLS",false);
+    LinearRegression model = LinearRegression("Gradient_Descent",true);
+    model.fit("../Salary_dataset.csv",0.001,1000,"Ridge");
+    model1.fit("../Salary_dataset.csv");
 
     
 }
