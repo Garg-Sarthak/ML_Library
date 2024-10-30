@@ -1,6 +1,8 @@
 #include "dataParser.h"
 #include "makeMatrix.h"
 #include "linearRegression.h"
+#include "logisticRegression.h"
+#include "KNNreg.h"
 #include <iostream>
 #include <Eigen/Dense>
 
@@ -17,19 +19,21 @@ int main(){
         cout<<"Error : "<<e.what()<<endl;
         return 0;
     }
-    // df.displayData();
-    // for (const auto& it : df.feature_names){
-    //     cout << it<< endl;
-    // }
 
     BaseMatrix M(df.dataFrame,isSupervised);
     cout<<M.featureMatrix<<endl;
-    cout<<M.featureMatrix.rows()<<endl;
-    cout<<M.featureMatrix.cols()<<endl;
-    LinearRegression model1 = LinearRegression("OLS",false);
-    LinearRegression model = LinearRegression("Gradient_Descent",true);
-    model.fit("../Salary_dataset.csv",0.001,1000,"Ridge");
-    model1.fit("../Salary_dataset.csv");
 
+    // Eigen::Matrix2d h;
+    // h << 1.5,6.3,2.4,4.4;
+    // h.resize(1);
+    // cout << h << endl;
+    // cout << M.featureMatrix.head(15).transpose()<<endl;
+    // cout<<M.featureMatrix.rows()<<endl;
+    // cout<<M.featureMatrix.cols()<<endl;
+    // LogisticRegression logReg = LogisticRegression(true,true);
+    // logReg.fit("../Social_Network_Ads.csv",0.0001,100000);
+    KNN mod = KNN();
+    mod.predict("../Salary_dataset.csv",M.featureMatrix,3);
     
+
 }

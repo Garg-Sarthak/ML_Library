@@ -69,6 +69,16 @@ public :
         }
     }
 
+    Eigen::VectorXd predict(Eigen::Matrix<double,Dynamic,Dynamic> X){
+        if (weights.size()==0 || weights.rows() != X.cols()){
+            throw std::runtime_error("Invalid input size or model no trained yet");
+        }
+        Eigen::VectorXd predictedY;
+        predictedY = X*weights + Eigen::VectorXd::Constant(X.rows(),bias);
+        std::cout<<predictedY.transpose()<<std::endl;
+        return predictedY;
+    }
+
 private :
     void OLS(Matrix<double,Dynamic,Dynamic> X, Matrix<double,Dynamic,1> Y){
 
