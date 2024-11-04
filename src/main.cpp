@@ -4,6 +4,8 @@
 #include "logisticRegression.h"
 #include "KNNreg.h"
 #include "KNNclass.h"
+#include "KMeans.h"
+#include "dimensionalityReduction.h"
 #include <iostream>
 #include <Eigen/Dense>
 
@@ -40,6 +42,14 @@ int main(){
 
     KNNClassifier mod = KNNClassifier();
     mod.predict("../Social_Network_Ads.csv",M.featureMatrix,4);
-    
+
+    PCA pca;
+    cout << pca.fit_transform(M.featureMatrix,1)<<endl;
+
+    KMeans km;
+    km.fit(M.featureMatrix,4);
+    cout << km.centroids << endl;
+
+
 
 }

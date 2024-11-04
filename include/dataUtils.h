@@ -7,13 +7,20 @@ class DataUtils {
 public:
 
     static Eigen::MatrixXd normalize(const Eigen::MatrixXd& matrix) {
-        Eigen::MatrixXd normalized = matrix;
-        for (int i = 0; i < matrix.cols(); ++i) {
-            double mean = matrix.col(i).mean();
-            // double std_dev = std::sqrt((matrix.col(i) - mean).squaredNorm() / matrix.rows());
-            // normalized.col(i) = (matrix.col(i) - mean) / std_dev;
+        Eigen::MatrixXd X = matrix;
+        int rows = X.rows();
+        int cols = X.cols();
+        for (int col = 0; col < cols; col++){
+            double mean = X.col(col).mean();
+            VectorXd A = (X.col(col) - VectorXd::Constant(rows,mean));
+            double std_dev = sqrt((A.cwiseProduct(A)).sum() / (rows-1));
+            if (std_dev < 1e-10){
+                std::cerr << "Standard deviation close to zero";
+                std_dev = 1e-10;
+            }
+            X.col(col) = A/std_dev;
         }
-        return normalized;
+        return X;
     }
 
 
