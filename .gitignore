@@ -2,4 +2,4 @@ CMakeLists.txt
 trial.csv
 *.csv
 src/main.cpp
-
+build/out.exe

@@ -1,14 +1,14 @@
 [
 {
   "directory": "/Users/sarthak/projects/ml_framework/build",
-  "command": "/usr/bin/clang++  -I/Users/sarthak/projects/ml_framework/include -I\"/Users/sarthak/projects/ml_framework/include/*\" -I/Users/sarthak/eigen-3.4.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -o CMakeFiles/ml_framework.dir/src/dataParser.cpp.o -c /Users/sarthak/projects/ml_framework/src/dataParser.cpp",
+  "command": "/usr/bin/clang++  -I/Users/sarthak/projects/ml_framework/include -I\"/Users/sarthak/projects/ml_framework/include/*\" -I/Users/sarthak/eigen-3.4.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -o CMakeFiles/out.dir/src/dataParser.cpp.o -c /Users/sarthak/projects/ml_framework/src/dataParser.cpp",
   "file": "/Users/sarthak/projects/ml_framework/src/dataParser.cpp",
-  "output": "CMakeFiles/ml_framework.dir/src/dataParser.cpp.o"
+  "output": "CMakeFiles/out.dir/src/dataParser.cpp.o"
 },
 {
   "directory": "/Users/sarthak/projects/ml_framework/build",
-  "command": "/usr/bin/clang++  -I/Users/sarthak/projects/ml_framework/include -I\"/Users/sarthak/projects/ml_framework/include/*\" -I/Users/sarthak/eigen-3.4.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -o CMakeFiles/ml_framework.dir/src/main.cpp.o -c /Users/sarthak/projects/ml_framework/src/main.cpp",
+  "command": "/usr/bin/clang++  -I/Users/sarthak/projects/ml_framework/include -I\"/Users/sarthak/projects/ml_framework/include/*\" -I/Users/sarthak/eigen-3.4.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -o CMakeFiles/out.dir/src/main.cpp.o -c /Users/sarthak/projects/ml_framework/src/main.cpp",
   "file": "/Users/sarthak/projects/ml_framework/src/main.cpp",
-  "output": "CMakeFiles/ml_framework.dir/src/main.cpp.o"
+  "output": "CMakeFiles/out.dir/src/main.cpp.o"
 }
 ]

@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ml_framework
+# Target rules for targets named out
 
 # Build rule for target.
-ml_framework: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ml_framework
-.PHONY : ml_framework
+out: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 out
+.PHONY : out
 
 # fast build rule for target.
-ml_framework/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/build
-.PHONY : ml_framework/fast
+out/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/build
+.PHONY : out/fast
 
 src/dataParser.o: src/dataParser.cpp.o
 .PHONY : src/dataParser.o
 
 # target to build an object file
 src/dataParser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/dataParser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/dataParser.cpp.o
 .PHONY : src/dataParser.cpp.o
 
 src/dataParser.i: src/dataParser.cpp.i
@@ -142,7 +142,7 @@ src/dataParser.i: src/dataParser.cpp.i
 
 # target to preprocess a source file
 src/dataParser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/dataParser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/dataParser.cpp.i
 .PHONY : src/dataParser.cpp.i
 
 src/dataParser.s: src/dataParser.cpp.s
@@ -150,7 +150,7 @@ src/dataParser.s: src/dataParser.cpp.s
 
 # target to generate assembly for a file
 src/dataParser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/dataParser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/dataParser.cpp.s
 .PHONY : src/dataParser.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -158,7 +158,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -166,7 +166,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -174,7 +174,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ml_framework.dir/build.make CMakeFiles/ml_framework.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -185,7 +185,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ml_framework"
+	@echo "... out"
 	@echo "... src/dataParser.o"
 	@echo "... src/dataParser.i"
 	@echo "... src/dataParser.s"
