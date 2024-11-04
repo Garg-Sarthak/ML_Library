@@ -12,6 +12,8 @@ Can implement the following models at the moment :
 - KNN regressor
 - KNN classifier
 
+Pass data using CSV file
+
 ## Requirements
 - C++11 or higher
 - CMake
@@ -26,6 +28,10 @@ to use, clone the repository : https://github.com/Garg-Sarthak/ML_Library
 
 1. Create a build directory and navigate to it
 2. Run CMake to generate the Makefiles:
-    'cmake ..'
+
+    `cmake ..`
 3. Build the library:
-    'make'
+
+    `make`
+4. Make main.cpp in src folder (see sampleMain.cpp)
+5. compile to get executable in build folder (see sampleCMakeLists.txt)

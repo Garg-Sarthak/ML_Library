@@ -22,7 +22,10 @@ public :
 
     MatrixXd fit_transform(string path, int reduced_dims){
         DataFrame df;
-        df.parseData(path,false);
+        try{df.parseData(path,false);}
+        catch(exception& e){
+            cout << e.what() << endl;
+        }
         BaseMatrix m(df.dataFrame,false);
         return fit_transform(m.featureMatrix,reduced_dims);
     }
