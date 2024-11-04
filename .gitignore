@@ -1,5 +1,5 @@
 CMakeLists.txt
 trial.csv
 *.csv
-main.cpp
+src/main.cpp
 
