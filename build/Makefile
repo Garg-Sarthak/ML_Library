@@ -177,6 +177,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/sampleMain.o: src/sampleMain.cpp.o
+.PHONY : src/sampleMain.o
+
+# target to build an object file
+src/sampleMain.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/sampleMain.cpp.o
+.PHONY : src/sampleMain.cpp.o
+
+src/sampleMain.i: src/sampleMain.cpp.i
+.PHONY : src/sampleMain.i
+
+# target to preprocess a source file
+src/sampleMain.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/sampleMain.cpp.i
+.PHONY : src/sampleMain.cpp.i
+
+src/sampleMain.s: src/sampleMain.cpp.s
+.PHONY : src/sampleMain.s
+
+# target to generate assembly for a file
+src/sampleMain.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/sampleMain.cpp.s
+.PHONY : src/sampleMain.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/sampleMain.o"
+	@echo "... src/sampleMain.i"
+	@echo "... src/sampleMain.s"
 .PHONY : help
 
 

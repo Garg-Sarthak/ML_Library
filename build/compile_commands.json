@@ -10,5 +10,11 @@
   "command": "/usr/bin/clang++  -I/Users/sarthak/projects/ml_framework/include -I\"/Users/sarthak/projects/ml_framework/include/*\" -I/Users/sarthak/eigen-3.4.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -o CMakeFiles/out.dir/src/main.cpp.o -c /Users/sarthak/projects/ml_framework/src/main.cpp",
   "file": "/Users/sarthak/projects/ml_framework/src/main.cpp",
   "output": "CMakeFiles/out.dir/src/main.cpp.o"
+},
+{
+  "directory": "/Users/sarthak/projects/ml_framework/build",
+  "command": "/usr/bin/clang++  -I/Users/sarthak/projects/ml_framework/include -I\"/Users/sarthak/projects/ml_framework/include/*\" -I/Users/sarthak/eigen-3.4.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -o CMakeFiles/out.dir/src/sampleMain.cpp.o -c /Users/sarthak/projects/ml_framework/src/sampleMain.cpp",
+  "file": "/Users/sarthak/projects/ml_framework/src/sampleMain.cpp",
+  "output": "CMakeFiles/out.dir/src/sampleMain.cpp.o"
 }
 ]

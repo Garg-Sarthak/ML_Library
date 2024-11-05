@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/sarthak/projects/ml_framework/src/dataParser.cpp" "CMakeFiles/out.dir/src/dataParser.cpp.o" "gcc" "CMakeFiles/out.dir/src/dataParser.cpp.o.d"
   "/Users/sarthak/projects/ml_framework/src/main.cpp" "CMakeFiles/out.dir/src/main.cpp.o" "gcc" "CMakeFiles/out.dir/src/main.cpp.o.d"
+  "/Users/sarthak/projects/ml_framework/src/sampleMain.cpp" "CMakeFiles/out.dir/src/sampleMain.cpp.o" "gcc" "CMakeFiles/out.dir/src/sampleMain.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

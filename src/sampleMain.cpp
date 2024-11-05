@@ -15,5 +15,5 @@ int main(){
     df.displayData();
 
     PCA pca;
-    cout << pca.fit_transform("path_to_csv_file.csv") << endl;
+    cout << pca.fit_transform("path_to_csv_file.csv",5) << endl;
 }

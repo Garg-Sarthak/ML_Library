@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/out.dir/src/dataParser.cpp.o.d"
   "CMakeFiles/out.dir/src/main.cpp.o"
   "CMakeFiles/out.dir/src/main.cpp.o.d"
+  "CMakeFiles/out.dir/src/sampleMain.cpp.o"
+  "CMakeFiles/out.dir/src/sampleMain.cpp.o.d"
   "out"
   "out.pdb"
 )
