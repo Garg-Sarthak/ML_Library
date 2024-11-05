@@ -80,10 +80,69 @@ public :
     }
 };
 
-// class LDA{
-//     bool isSupervised = true;
+class LDA{
+    bool isSupervised = true;
     
-//     MatrixXd fit_transform()
-// };
+    MatrixXd transform(const MatrixXd& X, const MatrixXd& Y, int K) {
+        int numFeatures = X.cols();
+        int numClasses = Y.cols();
+        
+        VectorXd overallMean = X.colwise().mean();
+
+        MatrixXd withinClassScatter = MatrixXd::Zero(numFeatures, numFeatures);
+        MatrixXd betweenClassScatter = MatrixXd::Zero(numFeatures, numFeatures);
+
+        for (int classIdx = 0; classIdx < numClasses; classIdx++) {
+
+            MatrixXd classData = X.block(0, 0, 0, 0);  // Placeholder for class samples
+            int count = 0;
+            for (int i = 0; i < X.rows(); i++) {
+                if (Y(i, classIdx) == 1) {  // Row belongs to class
+                    if (count == 0) {
+                        classData.resize(1, numFeatures);
+                    } else {
+                        classData.conservativeResize(count + 1, numFeatures);
+                    }
+                    classData.row(count++) = X.row(i);
+                }
+            }
+
+
+            VectorXd classMean = classData.colwise().mean();
+
+
+            MatrixXd scatter = (classData.rowwise() - classMean.transpose()).transpose() 
+                               * (classData.rowwise() - classMean.transpose());
+            withinClassScatter += scatter;
+
+
+            VectorXd meanDiff = classMean - overallMean;
+            betweenClassScatter += classData.rows() * (meanDiff * meanDiff.transpose());
+        }
+
+
+        EigenSolver<MatrixXd> solver(withinClassScatter.inverse() * betweenClassScatter);
+        MatrixXd eigenVectors = solver.eigenvectors().real();
+        VectorXd eigenValues = solver.eigenvalues().real();
+
+
+        vector<pair<double, VectorXd>> eigenPairs;
+        for (int i = 0; i < eigenValues.size(); i++) {
+            eigenPairs.push_back({eigenValues[i], eigenVectors.col(i)});
+        }
+        sort(eigenPairs.rbegin(), eigenPairs.rend(),
+             [](const pair<double, VectorXd>& a, const pair<double, VectorXd>& b) {
+                 return a.first < b.first;
+             });
+
+
+        MatrixXd W(numFeatures, K);
+        for (int i = 0; i < K; i++) {
+            W.col(i) = eigenPairs[i].second;
+        }
+
+        return X * W;
+    }
+};
 
 #endif

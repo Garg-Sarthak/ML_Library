@@ -76,7 +76,6 @@ class LogisticRegression{
             std :: cout << linear_model.transpose() << std::endl;
             VectorXd predictions = sigmoid(linear_model);
             return (predictions);
-            
         }
 
 private : 
