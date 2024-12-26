@@ -23,6 +23,8 @@ Pass data using CSV file
 ## Installation
 to use, clone the repository : https://github.com/Garg-Sarthak/ML_Library
 
+`git clone https://github.com/Garg-Sarthak/ML_Library`
+
 
 ## Usage
 
